@@ -9,6 +9,13 @@ import inspect
 from code_to_test import *
 
 
+class PrimeTests(unittest.TestCase):
+	def test_prime(self):
+		value = 2
+		expected = True
+		result = is_prime(value)
+		self.assertEqual(result, expected)
+
 class FibonacciTests(unittest.TestCase):
 	def test_is_generator(self):
 		self.assertTrue(
@@ -31,7 +38,7 @@ class FibonacciTests(unittest.TestCase):
 		#		D: < 0
 		#			max: -1
 		#			échantillon : -5
-		#			min: -infini (pas testé)
+		#			min: -∞ (pas testé)
 		#		E: pas un int
 		#			valeur limite: None
 		#			échantillon: "henlo"

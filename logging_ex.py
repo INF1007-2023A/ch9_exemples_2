@@ -9,7 +9,10 @@ def setup_logging(logs_dir, con_level, file_level=logging.DEBUG):
 
 	if not os.path.exists(logs_dir):
 		os.mkdir(logs_dir)
-	filename = "{}/{}.log".format(logs_dir, time.strftime("%Y-%m-%d_%H-%M-%S", time.localtime()))
+	filename = "{}/{}.log".format(
+		logs_dir,
+		time.strftime("%Y-%m-%d_%H-%M-%S", time.localtime())
+	)
 	file_handler = logging.FileHandler(filename)
 	file_handler.setLevel(file_level)
 
@@ -25,12 +28,14 @@ def setup_logging(logs_dir, con_level, file_level=logging.DEBUG):
 def main():
 	setup_logging("logs", logging.WARNING)
 
+	print("Hello, world!")
 	logging.debug("Hey!")
 	logging.info("Look!")
 	logging.warning("Listen!")
 	logging.error("HelloOo!")
 	time.sleep(1.1)
 	logging.critical("Watch out!")
+	print("Bye!")
 
 if __name__ == "__main__":
 	main()

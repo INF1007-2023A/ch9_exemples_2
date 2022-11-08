@@ -3,6 +3,8 @@
 
 from collections import deque
 from typing import Iterator
+from math import sqrt
+
 import argparse
 
 
@@ -43,9 +45,9 @@ def fibonacci_numbers(length) -> Iterator[int]:
 	"""
 
 	if not isinstance(length, int):
-		raise TypeError()
+		raise TypeError("Parameter length must be integral (int)")
 	if length < 0:
-		raise ValueError()
+		raise ValueError("Parameter length must be >= 0")
 
 	init_values = [0, 1]
 	for elem in init_values[0:length]:
@@ -90,8 +92,7 @@ def setup_args():
 
 	return parser.parse_args()
 
-
-if __name__ == "__main__":
+def main():
 	args = setup_args()
 
 	print("--- Command-line arg ---")
@@ -118,3 +119,6 @@ if __name__ == "__main__":
 	hofstadter_q = build_recursive_sequence_generator([1, 1], lambda seq: seq[-seq[-1]] + seq[-seq[-2]], True)
 	print(f"Hofstadter-Q : {[elem for elem in hofstadter_q(10)]}")
 
+
+if __name__ == "__main__":
+	main()
